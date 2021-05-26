@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rule-execution-set>
+   <name>RuleExecutionSet2</name>
+   <description>Rule Execution Set 2</description>
+
+   <synonymn name="price" class="com.example.amanscode.rulesengine.main.example1.Price" />
+
+    <!--
+      If the credit limit of the customer is greater than the amount of the
+      invoice and the status of the invoice is "unpaid" then
+      decrement the credit limit with the amount of the invoice and
+      set the status of the invoice to "paid".
+    -->
+    
+   <rule name="Rule1" description="1000-2000 price to discount rule" >
+	<if leftTerm="price.getActualPrice" op="&gt;" rightTerm="999" />
+	<if leftTerm="price.getActualPrice" op="&lt;" rightTerm="2000" />
+	<then method="price.setDiscountedPrice" arg1="10" />
+   </rule>
+   
+   <rule name="Rule2" description="2000-3000 price to discount rule" >
+	<if leftTerm="price.getActualPrice" op="&gt;" rightTerm="1999" />
+	<if leftTerm="price.getActualPrice" op="&lt;" rightTerm="3000" />
+	<then method="price.setDiscountedPrice" arg1="12" />
+   </rule>
+   
+   <rule name="Rule3" description="3000-4000 price to discount rule" >
+	<if leftTerm="price.getActualPrice" op="&gt;" rightTerm="2999" />
+	<if leftTerm="price.getActualPrice" op="&lt;" rightTerm="4000" />
+	<then method="price.setDiscountedPrice" arg1="15" />
+   </rule>
+   
+   <rule name="Rule4" description="4000-5000 price to discount rule" >
+	<if leftTerm="price.getActualPrice" op="&gt;" rightTerm="3999" />
+	<if leftTerm="price.getActualPrice" op="&lt;" rightTerm="5000" />
+	<then method="price.setDiscountedPrice" arg1="17" />
+   </rule>
+   
+   <rule name="Rule5" description="5000 above price to discount rule" >
+	<if leftTerm="price.getActualPrice" op="&gt;" rightTerm="4999" />
+	<then method="price.setDiscountedPrice" arg1="20" />
+   </rule>
+   
+</rule-execution-set>
